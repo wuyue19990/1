@@ -24,6 +24,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add typing effect for hero headline
     setupTypingEffect();
+    
+    const btn = document.getElementById('dropdownBtn');
+    const menu = document.getElementById('dropdownMenu');
+    if (btn && menu) {
+        const dropdown = btn.parentElement;
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+
+    // Hero section 小红书下拉菜单
+    const heroBtn = document.getElementById('heroDropdownBtn');
+    const heroMenu = document.getElementById('heroDropdownMenu');
+    if (heroBtn && heroMenu) {
+        const heroDropdown = heroBtn.parentElement;
+        heroBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            heroDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            if (!heroDropdown.contains(e.target)) {
+                heroDropdown.classList.remove('show');
+            }
+        });
+    }
 });
 
 // 粒子背景效果相关函数已移除
